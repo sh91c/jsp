@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+   var fruits = ["Apple", "Banana", "Kiwi", "Mango"];
+   // ul
+   function div1_make() {
+	   // var ul ='<ul><li>apple</li><li>apple2</li></ul>';
+	   var ul   = document.createElement('ul'); // <ul></ul>
+	   
+	   for(var i=0;i< fruits.length;i++ ) {
+		   var li  = document.createElement('li');  // <li></li>
+		   var txt = document.createTextNode( fruits[i] ); // "apple"
+		   li.appendChild(txt);
+		   ul.appendChild(li);
+	   }
+	   	   
+	   return ul;
+   }
+   
+   function createAttr(element, name, value ) {	  
+   	   var attr    = document.createAttribute( name );
+   	   attr.value  = value;
+   	   element.setAttributeNode(attr);
+   }
+   
+   function div2_make() {
+	   //var select = '<select name='' size="3">
+	  // <option value=''>apple</option>
+	  // <option>banana</option></select>';
+	   var select = document.createElement('select');  // <select></select>
+	   for( var i in fruits ) {
+	   	   var option = document.createElement('option'); // <option></option>
+	   	   var txt    = document.createTextNode( fruits[i] ); // "apple"
+	   	   option.appendChild( txt );
+	   	
+	   	   //option 에 속성 추가 value="0"
+	   	   createAttr(option, 'value', i );   
+	   	   
+	   	   select.appendChild( option );
+	   }
+	   // <select  name="fruit"> 추가
+	   createAttr( select , 'name', 'fruit' ); 
+	   
+	   return select;
+   }
+   
+ /*   <div>    
+   <input type="checkbox" name="fruits" value="apple" id="apple" />
+   <label for="apple">apple</label> 
+   </div> */ 
+   
+   function div3_make() {
+	   var div = document.createElement('div');
+	   
+	   fruits.forEach(function( fruit, indewx, array) {
+		   var input = document.createElement('input');
+		   // 속성
+		   createAttr( input, 'type', 'checkbox' );
+		   createAttr( input, 'name', 'fruits' );
+		   createAttr( input, 'value', fruit );
+		   createAttr( input, 'id', fruit );
+		   
+		   var label = document.createElement('label');
+		   var txt   = document.createTextNode( fruit );
+		   label.appendChild( txt );
+		   // 속성
+		   createAttr( label, 'for', fruit );
+		   
+		   div.appendChild( input );   
+		   div.appendChild( label );  
+		   
+	   });   
+	   
+	   return div;
+   }
+   
+   window.onload = function() {
+	   var btn1  = document.getElementById('btn1');
+	   var div1  = document.getElementById('div1');
+	   var div2  = document.getElementById('div2');
+	   var div3  = document.getElementById('div3');
+	   
+	   btn1.addEventListener('click', function (e) { 
+		   var ul  = div1_make();
+		   div1.appendChild( ul );
+		   
+		   var select = div2_make();
+		   div2.appendChild( select );
+		   
+		   var cbDiv = div3_make();
+		   div3.appendChild( cbDiv  );  
+		   
+	   });
+   }
+  
+</script>
+</head>
+<body>
+  <form action="test04_proc.jsp" method="GET"> 
+  <input type="button" id="btn1" value="만들기" />  
+  <div id="div1"></div>
+  <div id="div2"></div>
+  <div id="div3"></div>
+  <input type="submit" value="전송" />
+  </form>
+</body>
+</html>

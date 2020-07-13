@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	* { border: 3px solid black;
+	    padding: 30px; }
+</style>
+</head>
+<body>
+	<!-- 이벤트 버블링(기본값): 부모노드를 타고 올라가면서 이벤트가 활성화되는 것.
+	     이벤트 캡쳐링       : 자식노드를 타고 내려가면서 이벤트가 활성화-->
+	<div onclick="alert('outer')">
+		<div onclick="alert('inner')">
+			<h1 onclick="alert('h1')">
+				<p onclick="alert('p')">Paragraph</p>
+			</h1>
+		</div>
+	</div>
+</body>
+</html>

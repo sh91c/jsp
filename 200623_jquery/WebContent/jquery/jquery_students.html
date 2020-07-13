@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script>
+	var students = [
+		{sid: 's001', sname: '홍길동', age: 32, gender: '남자'},
+		{sid: 's002', sname: '전우치', age: 23, gender: '남자'},
+		{sid: 's003', sname: '김석우', age: 28, gender: '남자'},
+		{sid: 's004', sname: '박경수', age: 31, gender: '남자'},
+		{sid: 's005', sname: '김선희', age: 25, gender: '여자'}
+	];
+	
+	$(document).ready(
+		function(){
+			// 1. 조회 버튼의 click 이벤트 등록
+			$('#search_btn').click(
+				function(){
+					searchFunc();
+				}	
+			);
+		}
+	);
+	var searchFunc = function(){
+		// 1. Using For
+		
+		var strHTML = '';
+		/* 
+		for (var i = 0; i < students.length; i++) {
+			strHTML += "<tr>";
+				strHTML += "<td width='100px' height='30px' align='center'>";
+				strHTML += students[i].sid;
+				strHTML += "</td>";
+				strHTML += "<td width='150px' height='30px' align='left'>";
+				strHTML += students[i].sname;
+				strHTML += "</td>";
+				strHTML += "<td width='50px' height='30px' align='right'>";
+				strHTML += students[i].age;
+				strHTML += "</td>";
+				strHTML += "<td width='100px' height='30px' align='center'>";
+				strHTML += students[i].gender;
+				strHTML += "</td>";
+			strHTML += "/<tr>";
+		}
+		 */
+		 
+		$.each(students,
+			function(i, item){
+			strHTML += "<tr>";
+				strHTML += "<td width='100px' height='30px' align='center'>";
+				strHTML += item.sid;
+				strHTML += "</td>";
+				strHTML += "<td width='150px' height='30px' align='left'>";
+				strHTML += item.sname;
+				strHTML += "</td>";
+				strHTML += "<td width='50px' height='30px' align='right'>";
+				strHTML += item.age;
+				strHTML += "</td>";
+				strHTML += "<td width='100px' height='30px' align='center'>";
+				strHTML += item.gender;
+			strHTML += "</td>";
+		strHTML += "/<tr>";
+			}
+		); // each end
+		$('#searchTbl').append(strHTML); // 테이블은 append()를 사용.. 자식으로 추가
+	}
+	
+</script>
+</head>
+<body>
+	<table border="1px" cellpadding="0" cellspacing="0" width="400px" align="center">
+		<tr>
+			<td width="400px" align="right" height="40px">
+				<input type="button" value="조회" id="search_btn"/>
+			</td>
+		</tr>
+	</table>
+	<table border="1px" cellpadding="0" cellspacing="0" width="400px" align="center" id="searchTbl">
+		<tr>
+			<td width="100px" height="30px" align="center">
+				아이디
+			</td>
+			<td width="150px" height="30px" align="center">
+				이름
+			</td>
+			<td width="50px" height="30px" align="center">
+				나이
+			</td>
+			<td width="100px" height="30px" align="center">
+				성별
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

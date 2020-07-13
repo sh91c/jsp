@@ -1,0 +1,32 @@
+package PKG_STUDENT;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.catalina.connector.Request;
+
+@WebServlet("/Students")
+public class Students extends HttpServlet {
+
+    public Students() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/02_students/students_list.jsp");
+		dispatcher.forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	throws ServletException, IOException {
+
+	}
+
+}

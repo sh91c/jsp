@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.rec{
+		width: 200px;
+		height: 200px;
+		border: 1px dashed black;
+		background-color : lightgray;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$( function(){
+		$('#rect').draggable();
+	});
+</script>
+</head>
+<body>
+	<div class="rec" id="rect">
+	
+	</div>
+</body>
+</html>

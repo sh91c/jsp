@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+   <style>
+      .btn {
+         width:100px; height:25px;
+         border:1px solid #444444;
+         border-radius:10px;
+         background-color:#dddddd;
+      }
+   </style>
+   <script>
+      $ (
+         function() {
+            $('#button').click (
+               function() {
+                  $('#show').html('Click Event');
+               }      
+            );
+            
+            $('#button').mouseenter (
+               function() {
+                  $('#show').html('Mouse Enter Event');
+               }      
+            );
+            
+            $('#button').mouseout(
+            	function(){
+            		$('#show').html('mouse out');
+            		$('#button').css('background-color', '#red');
+            	}		
+            );
+            
+            $('#button').mouseover(
+            	function(){
+            		$('#show').html('mouseover');
+            		$('#show').css('background-color', 'yellow');
+            	}	
+            );
+            
+            $('#button').dblclick(
+           		function(){
+           			$('#show').html('double click');
+            		$('#show').css('background-color', 'blue');
+           		}
+            );
+         }
+      );
+      
+   </script>
+</head>
+<body>
+   <div id="show"></div>
+   <div id="button" class="btn"></div>
+</body>
+</html>

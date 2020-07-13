@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.red { color: red; }
+	.green { color: green; }
+</style>
+<script>
+	window.onload = function() {
+		var btnCheck = document.getElementById('btnCheck');
+		// 중복확인 버튼 눌렀을 때
+		btnCheck.onclick = function() {
+			var dupMsg = document.getElementById('dupMsg');
+			// 서블릿 호출
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function () { // xhr 비동기 이벤트 
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						var xml = xhr.responseXML;
+						var cls = xml.getElementsByTagName('class')[0];
+						var msg = xml.getElementsByTagName('msg')[0];
+						var msgHTML = '<b class="' + cls.innerHTML + '">' 
+						            + msg 
+						            + msg.firstChild.nodeValue 
+						            + '</b>';
+						dupMsg.innerHTML = msgHTML; 
+					}
+				}
+			}
+			var uid = document.getElementsByName('userid')[0].value;
+			xhr.open('GET', 'http://localhost:9090/Webprj11/GetMemberXML?userid='+uid, true);
+				// true : 비동기방식, false: 동기방식
+			xhr.send();
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="http://localhost:9090/Webprj11/RegMember" method="POST">
+		아이디<input type="text" name="userid">
+		<input type="button" value="중복확인" id="btnCheck">
+		<span id="dupMsg"></span><br> <!-- 페이지 구분 업데이트... AJAX 사용해야함 -->
+		암호<input type="password" name="userpw">
+		<input type="submit" value="가입">
+	</form>
+</body>
+</html>

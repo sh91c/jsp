@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script language="javascript">
+	function a() {
+		var objDiv = document.getElementsByTagName('div');
+		/*
+		objDiv[0].innerHTML = '0';
+		objDiv[1].innerHTML = '1';
+		objDiv[2].innerHTML = '1';
+		*/
+		
+		for(var i=0; i < objDiv.length; i++){
+			objDiv[i].innerHTML = i.toString();
+		}
+		
+	};
+</script>
+</head>
+<body>
+<!-- 98년도 코딩 -->
+<row id="wrap">
+	<div>
+		<a name="menu" id="menu1">메뉴1</a>
+		<a name="menu" id="menu2">메뉴2</a>
+		<a name="menu" id="menu3">메뉴3</a>
+		<a name="menu" id="menu4">메뉴4</a>
+	</div>
+	<div>
+		<a name="menu" id="menu1">메뉴1</a>
+		<a name="menu" id="menu2">메뉴2</a>
+		<a name="menu" id="menu3">메뉴3</a>
+		<a name="menu" id="menu4">메뉴4</a>
+	</div>
+	<div>
+		<a name="menu" id="menu1">메뉴1</a>
+		<a name="menu" id="menu2">메뉴2</a>
+		<a name="menu" id="menu3">메뉴3</a>
+		<a name="menu" id="menu4">메뉴4</a>
+	</div>
+	<div>
+		<a name="menu" id="menu1">메뉴1</a>
+		<a name="menu" id="menu2">메뉴2</a>
+		<a name="menu" id="menu3">메뉴3</a>
+		<a name="menu" id="menu4">메뉴4</a>
+	</div>
+	<div>
+		<input type="button" value="확인" onclick="a()"> 
+		<!-- 이벤트 핸들러 :onclick과 같이 입력장치로 이벤트가 발생할 때 핸들러가 동작함 -->
+	</div>
+</row>
+</body>
+</html>

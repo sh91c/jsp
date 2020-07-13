@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+<script src="jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+<script src="jquery-ui-1.12.1/jquery-ui.js"></script>
+<script>
+	$(
+		function(){
+			$( "#radioset" ).buttonset();		
+		}
+	);
+</script>
+</head>
+<body>
+	<!-- 디자인 없음 -->
+	<label><input type="radio" id="" name="gender" />남자</label>
+	<label><input type="radio" id="" name="gender" />여자</label>
+	
+	<!-- Checkboxradio -->
+	<form style="margin-top: 1em;">
+		<div id="radioset">
+			<input type="radio" id="radio1" name="radio"><label for="radio1">Choice 1</label>
+			<input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">Choice 2</label>
+			<input type="radio" id="radio3" name="radio"><label for="radio3">Choice 3</label>
+		</div>
+	</form>
+</body>
+</html>

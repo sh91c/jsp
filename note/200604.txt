@@ -1,0 +1,175 @@
+자바스크립트 배열
+
+<script>
+var person = ["John", "Doe", 46];
+document.getElementById("demo").innerHTML = person[2]*4;
+</script>
+
+//-> 184
+
+JS 배열의 내용은 타입이 달라도 사용가능하다.
+
+
+Object (객체) - java와 js비교
+
+자바) 생성자를 사용하지 않았다는 가정
+
+class Student{
+  String firstName;
+  String lastName;
+  int    age;
+} -> 클래스 선언
+Student s = new Studnet();
+// 클래스의 인스턴스를 s에 할당
+s.firstName = "John";
+s.lastName  = "Doe";
+s.age       = 46;
+
+
+JS)
+
+var s = {
+         firstName : 'John',
+         lastName  : 'Doe',
+         age       : 46
+        };
+
+var fName = s.firstName; 이렇게 사용가능
+
+==> 자바스크립트 객체 표현법
+    JavaScript Object Notation : JSON
+
+checked : 체크박스의 상태를 알려주는 속성
+
+=====200605=====
+
+AJAX : Asynchronous Javascript And Xml
+
+request 명령은 JSP,PHP 등에 있고 JS엔 없음
+
+HTML 페이지 이동방법
+	1. <a href="" > </a>
+	2. <form action ="">
+		<input type="submit">
+		<input type="image">
+		<button></button>
+	   </form>
+	
+	자바스크립트에서 이동방법
+	3. location.href=''; -> 페이지 이동
+	4. document.forms[0].submit(); -> submit 버튼 구현
+
+클로저 : 함수에 변수를 만들고 밖에서 사용할 수 있도록 하는 것
+
+===============================================
+6월 11일
+
+DOM: Document Object Model
+
+사각형: Node 라고 부름
+Node type: Element, Text, Attribute
+
+<html>
+ <head>
+   <title>My title</title>
+ </head>
+ <body>
+   <a href="">My Link</a>
+   <h1>My Header</h1>
+ </body>
+</html>
+
+-----------------
+innerText : 해당 태그안에 텍스트만 작성 가능
+innerHTML : 해당 태그안에 HTML태그 작성 가능
+
+
+6월 15일(월)
+
+객체지향의 3대 요소
+객체(클래스), 속성(프로퍼티), 메소드
+DB
+테이블 Table, 필드 field   ,  행동(Relation)
+
+
+제 1 정규화
+
+CHAR, VARCHAR2
+
+ORACLE 10 : 한글 2바이트
+ORACLE 11~: 한글 3바이트
+
+
+--DROP   주석붙여서 작성하기
+--DELETE
+
+행위가 발생해서 만들어진 데이터 -> 가공된 데이터
+
+DATE 타입에 primary key를 걸면 속도저하가 엄청 심함.
+
+제 2 정규화
+
+테이블끼리 다대다의 관계로 된 것
+
+테이블 전개도를 받아 객체-행위의 1대다 관계를 따라가면
+업무를 파악하기 수월해진다.
+
+
+다대다는 조인이 안되는 경우가 있기 때문에 인라인 쿼리를 사용
+
+조인을 할 때 일 대 다 의 형태로 해야할 것!
+조인은 '다'의 중심으로..
+
+WHERE을 사용하는 이유는 ROW 한 줄을 확인하기 위해서
+
+제 1정규화
+테이블에 '행위'를 넣지말자.
+어떤 값에 따라 다른 값이 변하지 않도록.
+
+제 2정규화
+
+책: 토비의 스프링 3.1
+
+데이터베이스 정규화를 쓰는 이유
+제 1 독자적 테이블
+제 2 업무 분석을 통한 엔티티들의 관계가 하나의 행위가 새로운 테이블과 1개의 row
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

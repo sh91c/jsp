@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.link {
+		font-size : 30px;
+		color : red;
+	}
+	.link2 {
+		font-size : 40px;
+		color : cyan;
+	}
+	
+</style>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+	function test(){
+		/* DOM
+		var obj = document.getElementById('show');
+		obj.innerHTML = "소연이바보";
+		*/
+//		var objshow = $('#show');
+//		objshow.html('은영이바보');
+		
+		// 1. DOM에서의 JQUERY
+			// document.getElementsByTagName('span');
+/* 		var objTag = document.getElementsByTagName('span');
+		objTag[0].innerHTML = '주희야 주의하자'; */
+		$('span').html('주희야!!!'); // 배열 표시없이 전부 작동됨
+		
+		// 2. document.getElementById();
+//		$('#show').html('dsadqwdzxc');
+		
+		// 3. stylesheet class 접근 가능
+		$('.link').html('aaaaa');
+		
+		// querySelector
+	}
+</script>
+</head>
+<body>
+	<div id="show">
+		<a href="" class="link">네이버</a>
+		<a href="" class="link">네이버</a>
+		<a href="" class="link2">네이버</a>
+		<a href="" class="link2">네이버</a>
+	</div>
+	<div>
+		<input type="button" value="확인" onclick="test();"/>
+	</div>
+	<span></span>
+	<span></span>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// 생성자 함수 : 객체 생성
+	function Rectangle(width, height){
+		// field
+		this.width  = width;
+		this.height = height;
+		
+		// Getter
+		this.getWidth  = function(){
+			return this.width;
+		}
+		this.getHeight = function(){
+			return this.height;
+		}
+		// Setter
+		this.setWidth  = function(w){
+			if(w < 0)
+				throw '넓이는 음수가 될 수 없습니다.';
+			else
+				this.width = w;
+		}
+		this.setHeight = function(h){
+			if(h < 0)
+				throw '높이는 음수가 될 수 없습니다.';
+			else
+				this.height = h;
+		}
+	}
+		// Method
+		Rectangle.prototype.getArea = function() {
+			return this.getWidth() * this.getHeight();
+		}
+		
+		try{
+			var rect1 = new Rectangle(5, 7);
+			document.write('rect1 면적: ' + rect1.getArea());
+			rect1.setWidth(-4);
+			document.write('면적: ' + rect1.getArea());
+		} catch (e) {
+			alert(e);
+		} finally {
+			
+		}	
+</script>
+<script>
+	// 객체 상속
+	function Square( length ) {
+		this.base = Rectangle;       // 부모 클래스를 지정,, base는 자바의 super()와 같다 : extends Ractangle
+		this.base( length, length ); // 부모 생성자 함수 호출 : super(Parameter, Parameter) -> Rectangle(length, length)로..
+	}
+	Square.prototype             = Rectangle.prototype; // 부모의 proto 상속받음
+	Square.prototype.constructor = Square;              // 생성자 지정
+	
+	// 변수 지정
+	var rect2 = new Rectangle(7, 8);
+	var squre = new Square(8); // length * length로 처리됌.. 8 * 8;
+	document.write('<br> rect2.getArea(): ' + rect2.getArea() + '<br>squre.getArea() : '+ squre.getArea());
+</script>
+</head>
+<body>
+	
+</body>
+</html>

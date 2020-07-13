@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// AJAX : Asyncronous Javascript And Xml
+	// data type : xml, text, json
+	window.onload = function(){
+		var btn = document.querySelector('input[type="button"]');
+		console.log(btn);
+		
+		var url = 'http://localhost:9090/Webprj07/GetData';
+		btn.onclick = function () {
+			// 서버 데이터 가져오기
+			// 페이지를 변경하지 않고 서버의 데이터를 가져옴
+			// -> 비동기 호출 : Asyncronous Call
+			var xhr = new XMLHttpRequest(); // 핵심
+			xhr.onreadystatechange = function(){ 
+				// readyState 속성
+				// 0 : ready, 1: open, 2: send-명령 수행중
+				// 3: 데이터 일부만 받음, 4: 모든 데이터를 받았음
+				alert(xhr.readyState);
+				if(xhr.readyState == 4) {
+					//200: 웹 서버에서 브라우저에게 파일을 성공적으로 전송했다는 뜻
+					if(xhr.status == 200){
+						var data = xhr.responseText; // xhr.responseText : 도착한 데이터
+						alert(data);
+						document.querySelector('#data').innerHTML = data;
+					}
+				}
+			}// 이벤트 onreadystatechange: ready 상태가 바뀔 때
+			var stext = document.querySelector('[name=num]').value;
+			// 통신시작 하기 전에
+			xhr.open('GET', url + '?num=' + stext, true); // true: 비동기, false: 동기
+			// 통신 시작 -> 상태코드의 변화가 있음
+			xhr.send(null);
+		}
+	}
+	
+</script>
+</head>
+<body>
+	<div id="data"></div>
+	찾을 번호<input type="text" name="num" value="1">
+	<input type="button" value="찾기"> <!-- 비동기 처리시에는 type="submit"을 사용하면 안된다. -->
+</body>
+</html>

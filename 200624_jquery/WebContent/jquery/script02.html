@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function checkValue(){
+		var objGenders = document.getElementsByName('gender');
+		
+		var checkedCnt = 0;
+		for (var i = 0; i < objGenders.length; i++) {
+			if(objGenders[i].checked){
+				checkedCnt += 1;
+			}
+		}
+		if(checkedCnt == 0){
+			alert('성별을 선택하세요.');
+			return; // 중요
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="" method="">
+		<label><input type="radio" name="gender" id="male" value="M" />남자</label>
+		<label><input type="radio" name="gender" id="female" value="F" />여자</label>
+		<input type="button" value="확인" onclick="checkValue()"/>
+	</form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/* 
+		on +
+			click
+			mouseover
+			blur
+			focus
+			
+			keydown
+			keyup
+			keypress
+			key
+	*/
+	
+	function keyTest(){
+		var objJumin = document.getElementById("jumin1");
+	};
+	
+	function checkNumber(){
+		var objJumin = document.getElementById("jumin1");
+		var objJumin2 = document.getElementById("jumin2");
+		var checkVal = "0123456789";
+		var juminVal = objJumin.value;
+		
+		for (var i = 0; i < juminVal.length; i++) {
+			var str = juminVal.substring(i, i+1);
+			if(checkVal.indexOf(str) == -1){
+				alert("숫자만 입력하세요.");
+				objJumin.value = "";
+				return;
+			};
+		};
+		if(juminVal.length == 6){
+		objJumin2.focus();
+		};
+	};
+	
+</script>
+</head>
+<body>
+	<input type="text" size="6" maxlength="6" onkeyup="checkNumber()" id="jumin1"/>
+	-
+	<input type="text" size="7" maxlength="7" id="jumin2"/>
+	
+	<!-- Click -->
+</body>
+</html>

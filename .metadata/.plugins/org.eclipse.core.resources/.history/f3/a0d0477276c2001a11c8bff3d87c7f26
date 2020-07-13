@@ -1,0 +1,104 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#wrap{ clear: both; }
+	.subrow{ float: left; width: 300px; heigth: 500px; border: 1px solid black; }
+	.timerow{ float: left; width: 600px; heigth: 500px; border: 1px solid black; }
+	.sub{ display: block; width: 200px; height: 40px; border:1px solid gray;}
+	.col{ float: left; width: 80px; height: 60px; }
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+	<div id="wrap">
+		<div id="subjects" class="subrow">
+			<a href="" class="sub">국어(3)</a>
+			<a href="" class="sub">수학(3)</a>
+			<a href="" class="sub">영어(3)</a>
+			<a href="" class="sub">과학(2)</a>
+			<a href="" class="sub">사회(2)</a>
+			<a href="" class="sub">체육(2)</a>
+		</div>
+		<div id="time" class="timerow">
+			<div class="row">
+				<div class="col"></div>
+				<div class="col">월</div>
+				<div class="col">화</div>
+				<div class="col">수</div>
+				<div class="col">목</div>
+				<div class="col">금</div>
+			</div>
+			<div class="row">
+				<div class="col">1</div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+			</div>
+			<div>
+				<div class="col">2</div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+			</div>
+			<div>
+				<div class="col">3</div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+			</div>
+			<div>
+				<div class="col">4</div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+			</div>
+			<div class="row">
+				<div class="col">5</div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+			</div>
+			<div class="row">
+				<div class="col">6</div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+			</div>
+			<div class="row">
+				<div class="col">7</div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+			</div>
+			<div class="row">
+				<div class="col">8</div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

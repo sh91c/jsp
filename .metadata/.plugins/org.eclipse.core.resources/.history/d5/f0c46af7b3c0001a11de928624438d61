@@ -1,0 +1,73 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Basic TextBox - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../css/demo.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../js/students.js"></script>
+    <script>
+	$( function(){
+		// 시험학기(년도, 학기)
+		getYear('year');
+		
+		getCollege('college');
+		
+		// CHANGE 이벤트 등록 
+		$('#college').change( function(){
+			var selectedValue = $('#college').val();
+			getDept(selectedValue, 'dept'); // selectedValue로 학과 정보를 가져와야함
+			//$('#dept').show();
+			$('#dept').css('display','inline');
+		});
+		
+		$('#dept').change( function(){
+			var selectedValue = $('#dept').val();
+			getStudents(selectedValue, 'student');
+			$('#student').show();
+		});
+		
+		$('#student').change( function(){
+			var stu_id   = $('#student').val();
+			var syear    = $('#year').val();
+			var semester = $('#semester').val(); // 선택된 값들을 변수에 담아서
+			getSubjects(stu_id, syear, semester, 'subject'); // 인자로 넘겨 과목 조회
+		});
+		
+		$('#btnSave').click( function(){
+			frm.submit();
+		});
+	});
+</script>
+</head>
+<body>
+    <h2>Basic TextBox</h2>
+    <p>The textbox allows a user to enter information.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" title="Register" style="width:100%;max-width:400px;padding:30px 60px;">
+        <div style="margin-bottom:20px">
+            <input name="stu_name" class="easyui-textbox" label="학생 이름" labelPosition="top" data-options="prompt:'학생 이름을 입력하세요.',validType:'email'" style="width:100%;">
+        </div>
+        <div style="margin-bottom:20px">
+            <select class="easyui-combobox" name="state" label="State:" labelPosition="top" style="width:100%;">
+                <option value="AL">Alabama</option>
+            </select>
+        </div>
+        <div style="margin-bottom:20px">
+            <input class="easyui-textbox" label="Last Name:" labelPosition="top" style="width:100%;">
+        </div>
+        <div style="margin-bottom:20px">
+            <input class="easyui-textbox" label="학생 연락처" labelPosition="top" style="width:100%;">
+        </div>
+        
+        <div>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-ok" style="width:100%;height:32px">Register</a>
+        </div>
+    </div>
+</body>
+</html>

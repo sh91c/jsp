@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+	function t(){
+		//alert($('#test').attr('type'));
+		
+		// 버그?
+		/* var isResult = $('#hobby').attr('checked'); // 체크를하면 T 풀면 F
+		console.log(isResult); // checked로 리턴됨
+		if(isResult){
+			$('#test').val("체크 되었음.");
+		} else {
+			console.log('----------');
+			$('#test').val("체크 풀렸음.");
+		} */
+		
+		alert($('#ddd').attr("style"));
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="test" size="15" />
+	<input type="checkbox" id="hobby" checked
+	 /> 잠자기
+	<input type="button" value="click" onclick="t();"/>
+	<div id="ddd" 
+	style="border: 1px solid red">aaaaaa</div>
+</body>
+<!--
+attr()은 특정 객체의 속성값을 확인할 때 사용.
+attr()을 사용해 해당 속성의 값을 변경할 수도 있다.
+ -->
+</html>

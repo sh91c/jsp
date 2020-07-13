@@ -1,0 +1,10 @@
+0:0:0:0:0:0:0:1 - - [05/Jul/2020:17:40:06 +0900] "POST /200701_SCORES/01_Students/Datas/getStudents.jsp HTTP/1.1" 200 21096
+0:0:0:0:0:0:0:1 - - [05/Jul/2020:17:40:14 +0900] "GET /200701_SCORES/01_Students/modStudent.jsp?chkVal=STU009 HTTP/1.1" 200 1825
+0:0:0:0:0:0:0:1 - - [05/Jul/2020:17:40:14 +0900] "GET /200701_SCORES/js/students.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [05/Jul/2020:17:40:14 +0900] "GET /200701_SCORES/01_Students/Datas/getSelStudent.jsp?stu_id=STU009 HTTP/1.1" 200 187
+0:0:0:0:0:0:0:1 - - [05/Jul/2020:17:40:15 +0900] "GET /200701_SCORES/01_Students/Datas/getAddr.jsp?addr=COM0015&lvl=2 HTTP/1.1" 200 140
+0:0:0:0:0:0:0:1 - - [05/Jul/2020:17:40:15 +0900] "GET /200701_SCORES/01_Students/Datas/getAddr.jsp?addr=COM0022&lvl=3 HTTP/1.1" 200 116
+0:0:0:0:0:0:0:1 - - [05/Jul/2020:17:40:15 +0900] "GET /200701_SCORES/01_Students/Datas/getDept.jsp?dept=COM0005&lvl=2 HTTP/1.1" 200 125
+0:0:0:0:0:0:0:1 - - [05/Jul/2020:17:40:15 +0900] "GET /200701_SCORES/01_Students/Datas/getAddr.jsp?addr=COM0041&lvl=4 HTTP/1.1" 200 77
+0:0:0:0:0:0:0:1 - - [05/Jul/2020:17:40:15 +0900] "GET /200701_SCORES/01_Students/Datas/getAddr.jsp?addr=&lvl=1 HTTP/1.1" 200 569
+0:0:0:0:0:0:0:1 - - [05/Jul/2020:17:40:15 +0900] "GET /200701_SCORES/01_Students/Datas/getDept.jsp?dept=&lvl=1 HTTP/1.1" 200 260

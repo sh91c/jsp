@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- 객체 지향은 코드를 간결하게 만들 수 있다. -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>사칙연산</title>
+		<script src="../js/jquery-3.5.1.min.js"></script>
+		<script>
+			var funcSum = function(a, b){
+				return a + b;
+			}
+	
+			var funcSub = function(a, b){
+				return a - b;
+			}
+			
+			var funcDev = function(a, b){
+				return a / b;
+			}
+			
+			var funcMul = function(a, b){
+				return a * b;
+			}
+			
+			
+			
+			$( function(){
+				$('#btnSum').click( function(){
+					var a = Number($('#num1').val());
+					var b = Number($('#num2').val());
+					
+					var strHTML = '<div>';
+						strHTML += a + ' + ' + b + '=' + funcSum(a, b);						
+					    strHTML += '</div>';
+					    
+					    strHTML += '<div>';
+						strHTML += a + ' - ' + b + '=' + funcSub(a, b);
+						strHTML += '</div>';
+						
+					    strHTML += '<div>';
+						strHTML += a + ' / ' + b + '=' + funcDev(a, b);
+						strHTML += '</div>';
+						
+					    strHTML += '<div>';
+						strHTML += a + ' * ' + b + '=' + funcMul(a, b);
+					    strHTML += '</div>';
+					    
+					$('#result').html(strHTML);
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+			<div>
+				<input type="text" id="num1" size="10"/>
+				<input type="text" id="num2" size="10"/>
+				<input type="button" id="btnSum" value="확인"/>
+			</div>
+			<div id="result">
+			
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;PKG_DB&apos; to &apos;Servlet01_200713/src&apos;&#x0A;- Original project: &apos;200701_SCORES&apos;&#x0A;- Destination element: &apos;Servlet01_200713/src&apos;&#x0A;- Original element: &apos;200701_SCORES/src/PKG_DB&apos;" description="Copy package" destination="=Servlet01_200713/src" element1="/src&lt;PKG_DB" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1594607864949" version="1.0"/>
+</session>

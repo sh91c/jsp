@@ -1,0 +1,61 @@
+/**
+ *  2020-07-06 scores
+ */
+
+var getCollege = function(vID){
+	$.ajax({
+		url      : './Datas/college_list.jsp',
+		type     : 'GET',
+		//data     : '',
+		datatype : 'JSON',
+		success  : function(datas){
+			var strHTML = '<option value="">선택하세요</option>';
+			$.each( datas, function(index, item){
+				strHTML += '<option value="'+ item.com_id +'">'+ item.com_val +'</option>';
+			});
+			$('#'+vID).html(strHTML);
+		},
+		error    : function(){
+			alert('getCollege() err!');
+		}
+	});
+}
+
+var getDept = function(selectedValue, vID){
+	//alert(selectedValue + '--' + vID);
+	$.ajax({
+		url      : './Datas/dept_list.jsp',
+		type     : 'GET',
+		data     : 'selectedValue='+selectedValue,
+		datatype : 'JSON',
+		success  : function(datas){
+			var strHTML = '<option value="">선택하세요</option>';
+			$.each( datas, function(index, item){
+				strHTML += '<option value="'+ item.com_id +'">'+ item.com_val +'</option>';
+			});
+			$('#'+vID).html(strHTML);
+		},
+		error    : function(){
+			alert('getDept() err!');
+		}
+	});
+}
+
+var getStudents = function(selectedValue, vID){
+	$.ajax({
+		url		 : './Datas/getStudents.jsp',
+		type     : 'GET',
+		data     : 'selectedDept='+selectedValue,
+		datatype : 'JSON',
+		success  : function(datas){
+			var strHTML = '<option value="">선택하세요</option>';
+			$.each( datas, function(){
+				strHTML += '<option value="'+ item.stu_id +'">'+ item.stu_name +'</option>';
+			});
+			$('#'+vID).html(strHTML);
+		},
+		error    : function(){
+			alert('getStudent() err!');
+		}
+	});
+}

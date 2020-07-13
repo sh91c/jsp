@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	img[data=op] { opacity: 0.5; }
+</style>
+<script>
+	window.onload = function() {
+		/*// 여기서 임의의 Attribute는 추가 및 스타일 적용이 되지 않음
+		var img = document.createElement('img');
+		img.src = './images/Desert.jpg';
+		img.width = 500;
+		img.height = 500;
+		img.data = 'op';
+		document.body.appendChild(img);
+		*/
+		
+		// setAttribute는 임의의 Attribute를 추가하고 스타일을 적용할 수 있음
+		var img = document.createElement('img');
+		img.setAttribute('src', './images/Desert.jpg');
+		img.setAttribute('width', '500');
+		img.setAttribute('height', '500');
+		img.setAttribute('height', '500');
+		img.setAttribute('data', 'op');
+		document.body.appendChild(img);
+		
+		// ie : attachEvent('event', callback) <-> detachEvent 를 사용해야함
+		var removeBtn = document.getElementById('removeBtn');
+		removeBtn.addEventListener('click', function(){
+			alert('test1');
+		});
+		
+		var btn1 = document.getElementById('btn1');
+		btn1.addEventListener('click', btn1Click);
+		
+		function btn1Click() {
+			alert('한번 클릭');
+			btn1.removeEventListener('click', btn1Click);
+			var img = document.querySelector('img');
+			document.body.removeChild(img);
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<button id="removeBtn">Remove</button><br>
+	<button id="btn1">한번만 클릭</button><br>
+</body>
+</html>

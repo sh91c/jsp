@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+<style>
+	.menu{
+		height: 100px;
+	}
+	
+	.submenu {
+		width: 180px;
+		background-color: #E1E6F6;
+		height: 25px;
+		border-bottom: 1px solid black;
+	}
+</style>
+<script src="jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+<script src="jquery-ui-1.12.1/jquery-ui.js"></script>
+<script>
+	
+	var menus = [];
+	menus = [
+		{menuid : 'm001', menu : '1번 메뉴', menulink : '1.jsp'},
+		{menuid : 'm002', menu : '2번 메뉴', menulink : '2.jsp'},
+		{menuid : 'm003', menu : '3번 메뉴', menulink : '3.jsp'},
+		{menuid : 'm004', menu : '4번 메뉴', menulink : '4.jsp'}
+	];
+	
+	var menus2 = [];
+	menus2 = [
+		{menuid: 'm005', menu: '즐겨찾기', menulink: '5.jsp'},
+		{menuid: 'm006', menu: '맛집', menulink: '6.jsp'}
+	];
+	
+	var menus3 = [];
+	menus3 = [
+		{menuid: 'm007', menu: '서브메뉴1', menulink: '7.jsp'},
+		{menuid: 'm008', menu: '서브메뉴2', menulink: '8.jsp'},
+		{menuid: 'm009', menu: '서브메뉴3', menulink: '9.jsp'}
+	];
+	
+	var strMenuHTML = '';
+	
+	var submenus = [];
+	submenus[0] = menus;
+	submenus[1] = menus2;
+	submenus[2] = menus3;
+	
+	var title = ['First', 'Second', 'Third'];
+	
+	$(
+		function(){
+			var menuTitle = '';
+			for (var i = 0; i < title.length; i++) {
+				    menuTitle += '<div>'+title[i]+'</div>';
+				    menuTitle += '<div id="menu'+(i+1)+'" class="menu" style="padding: 0px;"></div>';
+			}
+			$('#accordion').html(menuTitle);
+			
+			// 서브메뉴
+			var objMenus = $('.menu');	
+			for(var i = 0; i < submenus.length; i++){
+				
+				//var strId = "#menu" + (i+1).toString();
+				$.each(submenus[i],
+					function(index, item){
+					strMenuHTML += '<div class="submenu"><a href="'+ item.menulink +'">'
+								   + item.menu +'</a></div>';
+					}
+				);
+				$(objMenus[i]).html(strMenuHTML);
+				strMenuHTML = '';
+			}	
+			$( "#accordion" ).accordion(); // 스타일이 제일 마지막에 적용되어야하니 맨 밑으로 둔다!
+		}
+	);
+			
+			/* 
+			// 1번째 메뉴
+			$.each(menus,
+				function(index, item){
+				strMenuHTML += '<div class="submenu"><a href="'+ item.menulink +'">'
+							   + item.menu +'</a></div>';
+				}		
+			);
+			$('#menu1').html(strMenuHTML);
+		
+		
+			// 2번째 메뉴
+			strMenuHTML = '';
+			$.each(menus2,
+				function(index, item){
+				strMenuHTML += '<div class="submenu"><a href="'+ item.menulink +'">'
+			       			   + item.menu +'</a></div>';
+				}	
+			);
+			$('#menu2').html(strMenuHTML);
+			
+			// 3번째 메뉴
+			strMenuHTML = '';
+			$.each(menus3,
+				function(index, item){
+				strMenuHTML += '<div class="submenu"><a href="'+ item.menulink +'">'
+			       			   + item.menu +'</a></div>';
+				}	
+			);
+			$('#menu3').html(strMenuHTML);
+			 */
+		//}
+	//);
+</script>
+</head>
+<body>
+
+<!-- Accordion -->
+<h2 class="demoHeaders">Accordion</h2>
+	<div style="width: 184px;">
+		<div id="accordion" >
+			<!-- <div>First</div>
+			<div id="menu1" class="menu" style="padding: 0px;">
+			</div>
+			<div>Second</div>
+			<div id="menu2" class="menu" style="padding: 0px;">
+			</div>
+			<div>Third</div>
+			<div id="menu3" class="menu" style="padding: 0px;">
+			</div> -->
+		</div>
+	</div>
+</body>
+</html>

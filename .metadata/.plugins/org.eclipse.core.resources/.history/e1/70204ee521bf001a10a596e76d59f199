@@ -1,0 +1,22 @@
+/**
+ *  2020-07-06 scores
+ */
+
+var getCollege = function(vID){
+	$.ajax({
+		url      : './Datas/college_list.jsp',
+		type     : 'GET',
+		//data     : '',
+		datatype : 'JSON',
+		success  : function(datas){
+			var strHTML = '';
+			$.each( datas, function(index, item){
+				strHTML += '<option value="'+ item.com_id +'">'+ item.com_val +'</option>';
+			});
+			$('#'+vID).html(strHTML);
+		},
+		error    : function(){
+			alert('getCollege() err!');
+		}
+	});
+}

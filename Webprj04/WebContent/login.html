@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	// input type="text", "password"에 대한 Null Check 유효성 검사
+		function input_check(){
+		var uid = document.getElementById('uid').value;
+		var pwd = document.getElementById('pwd').value;
+			if( uid == "" || pwd == "" ){
+				alert('아이디 또는 암호를 입력하세요.');
+				return false;
+			} else {
+				return true;
+			}
+		}
+	
+	
+</script>
+</head>
+<body>
+	<form action="http://localhost:9090/Webprj04/loginOk.jsp" method="GET"
+		  onsubmit="return input_check()"> <!-- 정보를 전송할 형식인 태그는 form | onsubmit는 form전송하기전 입력된 데이터의 유효성을 검사-->
+		아이디<input id="uid" type="text"     name="userid" value="" ><br> <!-- 모든 태그의 name속성은 파라미터로 사용된다. -->
+		암호  <input id="pwd" type="password" name="passwd" value="" ><br>
+			  <input type="submit">
+	</form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+	var strHTML = '';
+	$( function(){
+		var sum = (a, b) => {
+			return a + b;
+		}
+		var sub = (a, b) => {
+			return a - b;
+		}
+		var mul = (a, b) => {
+			return a * b;
+		}
+		var div = (a, b) => {
+			return a / b;
+		}
+		
+		$('#btnCal').click( function(){
+			var a = Number($('#val1').val());
+			var b = Number($('#val2').val());
+			strHTML += a + '+' + b + '=' + sum(a,b) + '<br>';
+			strHTML += a + '-' + b + '=' + sub(a,b) + '<br>';
+			strHTML += a + '*' + b + '=' + mul(a,b) + '<br>';
+			strHTML += a + '/' + b + '=' + div(a,b) + '<br>';
+			$('#result').html(strHTML);
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<input type="text" size="10" id="val1"/>
+		<input type="text" size="10" id="val2"/>
+		<input type="button" value="사직연산 시작" id="btnCal"/>
+	</div>
+	<div id="result"></div>
+</body>
+</html>

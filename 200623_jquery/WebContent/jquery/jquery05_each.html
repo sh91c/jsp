@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	a {
+		display: block;
+		width: 100px;
+		height: 30px;
+	}
+</style>
+<script src="jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+<script>
+	function eachTest(){
+		
+		/* 
+		$('#test').children().each(
+			function(index, item){
+				alert(index);
+				alert(item);
+			}
+		); 
+		*/
+		
+		var students = [
+			{name : "홍길동", age : 34},
+			{name : "전우치", age : 23},
+			{name : "백설공주", age : 24}
+		];
+		
+		var strHTML = '';
+		$.each(
+			students, function(index, item){
+				strHTML +="<div>";
+				strHTML +=item.name + "은 " + item.age + "살 입니다..";
+				strHTML +="</div>";
+			}		
+		);
+		$('#students').html(strHTML);
+	}
+</script>
+</head>
+<body>
+	<div id="test">
+		<a href="http://www.naver.com">네이버</a>
+		<a href="http://www.daum.net">다음</a>
+		<a href="http://www.google.com">구글</a>
+	</div>
+	<div id="students">
+	</div>
+	<input type="button" value="확인" onclick="eachTest();"/>
+</body>
+</html>

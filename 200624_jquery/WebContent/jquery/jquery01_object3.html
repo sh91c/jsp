@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+	// 추상화 : 컵 (지름 높이 색깔)
+	var objCup = {
+			num     : 0,
+			name    : '',
+			radius  : 0,
+			height  : 0,
+			color   : '',
+			
+			makeCup : function(){
+				
+			},
+			
+			showCup : function(vid, val){
+				var imgName = val + '.jpg';
+				var strHTML = '<img src="./imgs/' + imgName + '" />';
+				$('#' + vid).html(strHTML);
+			}
+	};
+			
+	$( function(){
+		var objs = $('input[name="nCup"]'); // 참조하는 순간 제이쿼리에서 자바스크립로된다.
+		$(objs).change( function(){
+			/*
+			for (var i = 0; i < objs.length; i++) {
+				if($(objs[i]).prop('checked')){
+					var checkedValue = $(objs[i]).val();
+					/* -> objCup의 showCup 안으로
+					var imgName = checkedValue + '.jpg';
+					var strHTML = '<img src="./imgs/' + imgName + '" />';
+					$('#result').html(strHTML);
+					
+					objCup.showCup('result', checkedValue);
+				}
+			}
+			*/
+			
+			$(objs).each( function(index, item){
+				if($(item).prop('checked')){
+				objCup.showCup('result', item.value);
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<input type="radio" name="nCup" class="" id="nID1" value="1"/> 1번 컵
+		<input type="radio" name="nCup" class="" id="nID2" value="2"/> 2번 컵
+		<input type="radio" name="nCup" class="" id="nID3" value="3"/> 3번 컵
+	</div>
+	<div id="result">
+	</div>
+</body>
+</html>

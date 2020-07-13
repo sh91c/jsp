@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+
+	var px = "";
+	function ani(){
+		for(var i = 0; i<10000; i++){
+			px = (100 + (i / 1000) + px);
+			$('.rec1').css('left', px);
+		}
+	}
+</script>
+<style>
+	.rec1 {
+		width: 300px;
+		height: 300px;
+		background-color: red;
+		position: absolute;
+		font-size: 40px;
+		top: 100px;
+		left: 100px;
+		z-index: 100;
+	}
+	
+	.rec2 {
+		width: 500px;
+		height: 200px;
+		background-color: blue;
+		top: 100px;
+		position: absolute;
+		font-size: 40px;
+	}
+	
+	.rec3 {
+		width: 200px;
+		height: 500px;
+		background-color: green;
+		top: 100px;
+		position: absolute;
+		font-size: 40px;
+	}
+</style>
+</head>
+<body>
+	<div class="rec1">1</div>
+	<div class="rec2">2</div>
+	<div class="rec3">3</div>
+	<div>
+		<input type="button" value="확인" onclick="ani();" />
+	</div>
+</body>
+</html>

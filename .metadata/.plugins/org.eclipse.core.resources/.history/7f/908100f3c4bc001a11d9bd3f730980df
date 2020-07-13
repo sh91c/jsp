@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+.cchk {
+	width: 20px;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+	border: 1px solid #444444;
+}
+.cid {
+	width: 100px;
+	height: 30px;
+	border: 1px solid #444444;
+	color: #222222;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+}
+.cname {
+	width: 150px;
+	height: 30px;
+	border: 1px solid #444444;
+	color: #222222;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+}
+.ctel {
+	width: 200px;
+	height: 30px;
+	border: 1px solid #444444;
+	color: #222222;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+}
+.caddr {
+	width: 250px;
+	height: 30px;
+	border: 1px solid #444444;
+	color: #222222;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+}
+.cdept {
+	width: 250px;
+	height: 30px;
+	border: 1px solid #444444;
+	color: #222222;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+}
+
+.title, .list {
+	clear: both;	
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+	var students = [
+		{sid: 's001', name: '홍길동', age: 34 },	
+		{sid: 's002', name: '전우치', age: 30 },	
+		{sid: 's003', name: '김석수', age: 31 },	
+		{sid: 's004', name: '박동일', age: 24 }	
+	];
+	
+	// 객체화 : 학생 추상화
+	var objStudent = {
+		sid   : '',
+		name  : '',
+		age   : 0,
+		
+		addStudent  : function(){
+			var row = {sid : this.sid, name : this.name, age : this.age};
+			students.push(row);
+		},
+		
+		showStudents : function(){
+			var strHTML = '';
+			$.each(students, function(index, item){
+				strHTML += '<div>';
+				strHTML += '<input type="checkbox" value="'+ item.sid +'"name="vid" />';
+				strHTML += '이름: ' + item.name + ' - ';
+				strHTML += '나이: ' + item.age;
+				strHTML += '</div>';
+			});
+			
+			$('#slist').html(strHTML);
+		},
+		
+		delStudent : function(){
+			var objLists = $('input[type="checkbox"]');
+
+			$(objLists).each( function(index, item){
+				if(item.checked){
+					var checkedValue = item.value;
+					
+					for (var i = 0; i < students.length; i++) {
+						if(checkedValue == 	students[i].sid){
+							students.splice(i, 1);
+						}
+					}
+				}
+			});
+			objStudent.showStudents();
+			
+			
+			/* $(objList).each( function(){
+				$('input[type="checkbox"]')
+			}); */
+		}
+	};
+	
+	$( function(){
+		// 등록
+		$('#btnCon').click( function(){
+			objStudent.sid  = $('#sid').val();
+			objStudent.name = $('#name').val();
+			objStudent.age  = $('#age').val();
+			
+			objStudent.addStudent();
+		}); // 등록 끝
+		
+		// 조회
+		$('#btnSer').click( function(){
+			objStudent.showStudents();
+		}); // 조회 끝
+		
+		// 삭제
+		$('#btnDel').click( function(){
+			objStudent.delStudent();
+		}); // 삭제 끝
+	});
+	
+</script>
+</head>
+<body>
+	<h1>방명록</h1>
+	<div>
+		학생아이디 : <input type="text" id="sid" />
+	</div>
+	<div>
+		학생이름 : <input type="text" id="name" />
+	</div>
+	<div>
+		학생나이 : <input type="text" id="age" />
+	</div>
+	<div>
+		<input type="button" id="btnCon" value="등록" />
+		<input type="button" id="btnSer" value="조회" />
+		<input type="button" id="btnDel" value="삭제" />
+	</div>
+	<div id="slist">
+		
+	</div>
+</body>
+</html>

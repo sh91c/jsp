@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+   ul, li { padding:0; margin:0;   }
+   li { list-style-type:none;   }
+</style>
+<script>
+  var  questions = [
+      '다음 중 자바연산자가 아닌 것은?',
+     '다음 중 자바스크립트연산자가 아닌 것은?'     
+  ];
+  
+  var  answerList = [
+     [
+      { ans:'+',  name : 'a1' },      
+      { ans:'**', name : 'a1' },
+      { ans:'~',  name : 'a1' },
+      { ans:'!',  name : 'a1' }
+    ],
+    [
+      { ans:'_',  name : 'a2' },      
+      { ans:'**', name : 'a2' }     
+    ]
+  ];
+  
+  function makeExam() {
+     var exam = '';   
+   
+    for(var  i = 0; i < questions.length;i++)  {
+       exam        += '<h3>' + (i+1) + '.' + questions[i]  + '</h3>';          
+       var answer   = answerList[i]; 
+       exam += '<ul>';
+       for (var j=0;j<answer.length;j++) {
+         var id = answer[j].name + '_' + (j+1);  ``
+          exam  += '<li>';
+         exam  += '<input type="radio" name="'+ answer[j].name + '"'; 
+         exam  += ' value="' + id + '" id="' + id + '" />';
+            exam  += '<label for="'+ id + '">'+ answer[j].ans + '</label>';         
+         exam  += '</li>';
+       }       
+       exam += '</ul>';
+    }    
+    return exam;   
+  }
+  
+  window.onload = function () {
+     var exams = document.getElementById('exams');
+    exams.innerHTML = makeExam();  
+  }
+
+</script>
+
+</head>
+<body>
+  <div id="exams"></div>
+  <h1>정보처리</h1>
+  <div  id="div1">
+    <h3 class="q1">1. 다음 중 자바연산자가 아닌 것은?</h3>
+    <ul>
+      <li>
+         <input type="radio" name="a1" value="a1_1" id="a1_1" />
+         <label for="a1_1">+</label>
+      </li>
+      <li>
+         <input type="radio" name="a1" value="a1_2" id="a1_2" />
+         <label for="a1_2">**</label>
+      </li>
+      <li>
+         <input type="radio" name="a1" value="a1_3" id="a1_3" />
+         <label for="a1_3">~</label>
+      </li>
+      <li>
+         <input type="radio" name="a1" value="a1_4" id="a1_4" />
+         <label for="a1_4">!</label>
+      </li>
+    </ul>
+  </div>
+  <input type="button" value="제출" />
+</body>
+</html>

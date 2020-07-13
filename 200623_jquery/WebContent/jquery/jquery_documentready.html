@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+	var strHTML = '';
+
+	function test(){
+		strHTML += "1 JQUERY-ONLOAD";
+	}
+	
+	$(document).ready(
+		function(){
+			strHTML += "2 DOCUMENT.READY";
+		}		
+	); // document.ready를 주로 사용한다.
+	
+	$(function(){
+		strHTML += "3 JQUERY FUNCTION";
+	})
+	
+	function result(){
+		$("#test").html(strHTML)
+	}
+</script>
+</head>
+<body onload="test();">
+	<div id="test"></div>
+	<input type="button" value="check" onclick="result();" />
+</body>
+</html>	

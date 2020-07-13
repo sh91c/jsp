@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.ttt {
+		border: 1px solid blue;
+		font-size: 30px;
+		width: 300px;
+		height: 40px;
+	}
+</style>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+	function t(){
+		$('#ddd').css('font-size', '40px');
+		
+		document.getElementById('ddd').style.color = 'red';
+		/* document.getElementById('test').size = "40"; */
+		/* document.getElementById('test').type = "button"; */
+		
+		// 재정의 한 부분만 바뀜
+		document.getElementById('test').style = "border : 3px solid red";
+		
+		// 자바에서 오버로딩 같은 이름의 함수를 만들고 매개변수가 다른걸로 여러개만드는 것 
+	}
+</script>
+</head>
+<body>
+	<div id="ddd">테스트 문구</div>
+	<input type="text" id="test" size="12" class="ttt"/>
+	<input type="button" value="확인" onclick="t();" />
+</body>
+</html>

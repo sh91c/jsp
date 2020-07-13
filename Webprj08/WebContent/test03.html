@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JOIN : 회원가입</title>
+<style>
+	#main                { margin: 0 auto; width: 800px; }
+	table, td            { border: 1px solid black; border-collapse: collapse; }
+	td:nth-of-type(1)    { width: 150px; }
+	td:nth-of-type(2)    { width: 607px; }
+	td                   { padding: 10px; }
+	td[colspan]          { text-align: center; }
+	input[type=text], input[type=password] { width: 600px; }
+</style>
+<script>
+	window.onload = function () {
+		// DOM zero 방식 접근법 (구식)
+		//var txt = document.forms[0].elements[0].value; -> 여기 elements는 input태그를 가리킴
+		//var txt = document.forms['myForm'].elements['userid'].value;
+		//var txt = document.myForm.userid.value;
+
+		var form = document.getElementsByName('myForm')[0];
+		form.onsubmit = function (e) {
+			
+			var result = inputCheck();
+			var r = false;
+			switch(result){
+			case 0: r = true; break;
+			case 1: alert('아이디를 입력하세요.'); break;
+			case 2: alert('암호를 입력하세요.'); break;
+			case 3: alert('이름을 입력하세요.'); break;
+			}
+			//r = (result == 0) ? true : false;
+			return r;
+			// submit false: form을 전송하지 않음 , true: form을 전송함
+			//e.stopPropagation(); // stopPropagation() : 이벤트 버블(상위 전달)을 중지한다.
+			//e.preventDefault();  // preventDefault()  : 이벤트의 기본 동작을 없애버림(방해)
+		}
+
+		function inputCheck(){
+			// 새로운 방식
+			// input validation(입력되었는지 체크하기)
+			// check id
+			var userid   = document.getElementById('userid');
+			if(userid.value.trim() == '')   return 1;
+			var userpw   = document.getElementById('userpw');
+			if(userpw.value.trim() == '')   return 2;
+			var username = document.getElementById('username');
+			if(username.value.trim() == '') return 3;
+			
+			return 0;
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="main">
+		<form action="http://localhost:9090/Webprj08/get" name="myForm"
+		      method="POST">
+			<table>
+				<caption><h1>회원가입</h1></caption>
+				<tr>
+					<td>아이디</td>
+					<td><input type="text" placeholder="아이디를 입력하세요." name="userid" id="userid" value=""></td>
+				</tr>
+				<tr>
+					<td>암호 (9자 이상)</td>
+					<td><input type="password" placeholder="암호를 입력하세요." name="userpw1" id="userpw1" value=""></td>
+				</tr>
+				<tr>
+					<td>암호 확인</td>
+					<td><input type="password" placeholder="암호를 입력하세요." name="userpw2" id="userpw2" value=""></td>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td><input type="text" placeholder="이름을 입력하세요." name="username" id="username" value=""></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<input type="submit" value="가입하기">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

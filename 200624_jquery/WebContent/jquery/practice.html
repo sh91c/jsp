@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Simple To do list</title>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+	var obj = [{
+		
+	}];
+	var objTemp = [];
+	var msg = '';
+	$( function(){
+		$('#btn').click( function(){
+			var val = $('#iput').val();
+			for (var i = 0; i < objTemp.length+1; i++) {
+				if( objTemp[
+				objTemp += '{ tnum :' + i + ', todo :' + val + '}';				
+			}
+			msg += val + '<br>' ;
+		$('#asd').html(msg);
+		});
+	});
+	
+</script>
+</head>
+<body>
+	<div>
+		<h2>할 일 메모하기</h2>
+	</div>
+	<div>
+		<input id="iput" type="text" placeholder="할 일을 적으세요" size="30" />
+		<input id="btn" type="button" value="등록" />
+	</div>
+	<div id="asd"></div>
+</body>
+</html>

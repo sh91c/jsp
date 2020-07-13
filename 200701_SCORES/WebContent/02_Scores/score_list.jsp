@@ -1,0 +1,81 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/scores.css" />
+<style>
+	#dept {
+		display: none;
+	}
+	#student {
+		display: none;
+	}
+	.border {
+		border: 1px solid black;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="../js/scores.js"></script>
+<script>
+	$( function(){
+		getCollege('college');
+		
+		// event
+		$('#college').change( function(){
+			var selectedValue = $('#college').val();
+			getDept(selectedValue, 'dept'); // selectedValue로 학과 정보를 가져와야함
+			//$('#dept').show();
+			$('#dept').css('display','inline');
+		});
+		
+		$('#dept').change( function(){
+			var selectedValue = $('#dept').val();
+			getStudents(selectedValue, 'student');
+			$('#student').show();
+		});
+	});
+</script>
+</head>
+<body>
+
+	<div id="wrap">
+	
+		<div id="search">
+			<div class="scol">
+				<input type="text" name="year" id="year" size="4"/>년
+			</div>
+			<div class="scol">
+				<input type="text" name="semester" id="semester" size="4" />학기
+			</div>
+			<div class="scol">
+				<select name="gubun" id="gubun">
+					<option value="1">중간고사</option>
+					<option value="2">기말고사</option>
+				</select>
+			</div>
+			<div class="scol">
+				<select name="college" id="college">
+				
+				</select>
+			</div>
+			<div class="scol">
+				<select name="dept" id="dept">
+				
+				</select>
+			</div>
+			<div class="scol">
+				<select name="student" id="student">
+				
+				</select>
+			</div>
+			<div class="scol">
+				<input type="button" id="btnSearch" value="검색" />
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

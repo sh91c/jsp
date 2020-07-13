@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.tTd {
+	width: 150px;
+	height: 30px;
+	font-size: 20px;
+	color: #222222;
+	border: 1px solid #999999;
+	background-color: #eeeeee;
+	float: left;
+	text-align : center;
+	line-height: 30px;
+}
+
+.titleRow {
+	clear: both;
+}
+
+.sTd {
+	width: 150px;
+	height: 30px;
+	font-size: 20px;
+	color: #222222;
+	border: 1px solid #aaaaaa;
+	background-color: #fefefe;
+	float: left;
+	text-align : center;
+	line-height: 30px;
+}
+
+#rows {
+	clear: both;
+}

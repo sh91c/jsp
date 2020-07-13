@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	function btnClick() {
+		var today = new Date();
+		alert(today);
+		document.getElementById('demo').innerHTML = '<b style="color: red">' +  today.toLocaleString() + '</b>';
+	}
+	
+	function bulb_onoff(sw){
+		var bulb = document.getElementById('bulb');
+		if ( sw == 'on' ) {
+			bulb.src = 'images/pic_bulbon.gif'
+		}
+		if ( sw == 'off') {
+			bulb.src = 'images/pic_bulboff.gif'
+		}	
+	}
+	
+/* 	
+	function bulb_on() {
+		var bulb = document.getElementById('bulb');
+		bulb.src = 'images/pic_bulbon.gif';
+	}
+	
+	function bulb_off() {
+		var bulb = document.getElementById('bulb');
+		bulb.src = 'images/pic_bulboff.gif';
+	} 
+	 */
+	
+</script>
+</head>
+<body>
+	<button onclick = "btnClick()">Click me to display Date and Time.</button>
+	<div id = "demo"></div>
+	<button id ="btnOn"  onclick ="bulb_onoff('on')">On</button>
+	<img    id = "bulb" alt="전구" src="images/pic_bulboff.gif">
+	<button id ="btnOff" onclick ="bulb_onoff('off')">Off</button>
+	
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	li { list-style-type: none; }
+</style>
+<script>
+var  questions = [
+    '다음 중 자바연산자가 아닌 것은?',
+	  '다음 중 자바스크립트연산자가 아닌 것은?'	  
+];
+
+var  answerList = [
+   [
+	   { ans:'+',  name : 'a1' },	   
+	   { ans:'**', name : 'a1' },
+	   { ans:'~',  name : 'a1' },
+	   { ans:'!',  name : 'a1' }
+	 ],
+	 [
+	   { ans:'_',  name : 'a2' },	   
+	   { ans:'**', name : 'a2' }	  
+	 ]
+];
+
+function makeExam() {
+   var exam = '';	
+	
+	 for(var  i = 0; i < questions.length;i++)  {
+		 exam        += '<h3>' + (i+1) + '.' + questions[i]  + '</h3>';	 		
+		 var answer   = answerList[i]; 
+		 exam += '<ul>';
+		 for (var j=0;j<answer.length;j++) {
+		    exam  += '<li>';
+			exam  += '<input type="radio" name="'+ answer[j].name + '" value="a1_1" id="a1_1" />';
+          exam  += '<label for="a1_1">'+ answer[j].ans + '</label>';			
+			exam  += '</li>';
+		 }		 
+		 exam += '</ul>';
+	 }	 
+	 return exam;	
+}
+	
+	// 문제 출력 HTML exam-템플릿
+	/*
+	var exam = `
+		<div>
+			<h3>${questions[0]}</h3>
+			<ul>
+				<li>
+					<input id="a1_1" type="radio" name="a1" value="a1_1">
+					<label for="a1_1">+</label>
+				</li>
+				<li>
+					<input id="a1_2" type="radio" name="a1" value="a1_2">
+					<label for="a1_2">**</label>
+				</li>
+				<li>
+					<input id="a1_3" type="radio" name="a1" value="a1_3">
+					<label for="a1_3">~</label>
+				</li>
+				<li>
+					<input id="a1_4" type="radio" name="a1" value="a1_4">
+					<label for="a1_4">!</label>
+				</li>
+			</ul>
+		</div>
+		<input id="btnSubmit" type="button" value="제출">
+	`;
+	*/
+	window.onload = () => {
+		var template = document.getElementById('template');
+		template.innerHTML += makeExam();
+	}
+</script>
+</head>
+<body>
+	<div id="template"></div>
+</body>
+</html>

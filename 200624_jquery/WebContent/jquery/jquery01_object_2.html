@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+	var objCal = {
+		num1  : 0,
+		num2  : 1,
+		prtID : '',
+		
+		funcPlus : function(){
+			return this.num1 + this.num2;
+		},
+		
+		funcPrint : function(){ // 출력을 위한 함수
+			var strHTML = '';
+			strHTML    += this.num1 + ' + ' + this.num2 + ' = ' + this.funcPlus();
+			$('#' + this.prtID).html(strHTML);
+		}
+	};
+	
+	$(document).ready( 
+			function(){
+		// 1. event
+		$('#btnSum').click( 
+				function(){
+			var a = Number($('#num1').val());
+			var b = Number($('#num2').val());
+			
+			objCal.num1 = a;
+			objCal.num2 = b;
+			objCal.prtID = "result"; // id
+			
+			//결과 커스텀
+			var result = objCal.funcPlus();
+			objCal.funcPrint();      // 출력
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<input type="text" id="num1" size="10"/>
+		<input type="text" id="num2" size="10"/>
+		<input type="button" id="btnSum" value="확인"/>
+	</div>
+	<div id="result">
+	</div>
+</body>
+</html>

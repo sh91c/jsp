@@ -1,0 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String strStu_id = request.getParameter("student");
+	String strYear = request.getParameter("year");
+	String strSemester = request.getParameter("semester");
+	String strGubun = request.getParameter("gubun");
+	String strSub_id = request.getParameter("subject");
+	String strScore = request.getParameter("score");
+	String strExamDate = request.getParameter("exmadate");
+%>

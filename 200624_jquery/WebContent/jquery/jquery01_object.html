@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+	// 바로 리턴과 변수에 담아서 리턴하는 것 과의 차이
+	// 순수 계산만을 목적을 하기위한 함수를 작성하는것이 좋은 방법(1번)
+	var funcPlus1 = function(a,b){
+		return a + b;
+	}
+	
+	var funcPlus2 = function(a,b){
+		var c = a + b;
+		$('#result2').val(c);
+	}
+	
+	$( function(){
+		$('#btnSum').click( 
+			function(){
+				// funcPlus1
+				var result = funcPlus1(7,8);
+				$('#result').val(result);
+				
+				var result = funcPlus1(17,19);
+				$('#result').val(result);
+				
+				//2
+				funcPlus2(5,5);
+				funcPlus2(6,6);
+		});
+	});
+</script>
+</head>
+<body>
+	<input type="text" id="result" size="10"/>
+	<input type="text" id="result2" size="10"/>
+	<input type="button" id="btnSum" value="확인"/>
+</body>
+</html>

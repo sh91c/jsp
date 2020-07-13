@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/* 자바스크립트 객체 : 2.함수
+		this : '객체' 자신
+	*/
+	function minus(a,b){
+		
+	}
+
+	var func = function cal(a,b){
+		this.num1 = a;
+		this.num2 = b;
+		
+		this.plus = function (){
+			return this.num1 + this.num2;
+		}
+	}
+	
+	function exec(){
+		var obj = new func(6,7); /* 객체 인스턴스화 */
+		alert(obj.num1);
+	}
+	
+</script>
+</head>
+<body>
+	<input type="button" value="확인" onclick="exec();" />
+</body>
+</html>

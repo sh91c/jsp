@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+	var objInput = {
+		vName : '',
+		vID  : '',
+		vCls : '',
+		makeInputText : function() {
+			return '<input type="text" id="'+this.vID
+			                   +'" name="'+this.vName
+			                   +'" class="'+this.vCls+'" />';
+		},
+		showInputText : function(sID) {
+			var strHTML = this.makeInputText();
+			$('#' + sID).html(strHTML);
+		}
+	};
+	
+	$( function(){
+		$('#btnCon').click( function(){
+			objInput.vName = '';
+			objInput.vID   = '';
+			objInput.vCls  = '';			
+			objInput.showInputText('result');
+		});
+	});
+</script>
+</head>
+<body>
+	<input type="button" value="check" id="btnCon" />
+	<div id="result">
+	</div>
+</body>
+</html>

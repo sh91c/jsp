@@ -1,0 +1,90 @@
+<!-- 
+    CSS 우선순위
+	1. 태그 속성으로 할당
+	2. id
+	3. class
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="./jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+<script src="./jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+<script src="./jquery-ui-1.12.1/jquery-ui.js"></script>
+<style>
+	.css1 {
+		width: 300px;
+		height: 50px;
+		border: 1px solid #222222;
+	}
+	
+	.css2 {
+	
+	}
+</style>
+<script>
+	var mans = [
+		{sid : '1', size : '250'},
+		{sid : '2', size : '255'},
+		{sid : '3', size : '260'},
+		{sid : '4', size : '265'},
+		{sid : '5', size : '270'},
+		{sid : '6', size : '275'},
+	];
+	var womans = [
+		{sid : '11', size : '220'},
+		{sid : '12', size : '225'},
+		{sid : '13', size : '230'},
+		{sid : '14', size : '235'},
+		{sid : '15', size : '240'},
+		{sid : '16', size : '245'},
+	];
+</script>
+<script>
+	$( function(){
+		$('.css2').change( function(){
+			
+			var strHTML = '';
+			
+			// 남자를 선택했는지, 여자를 선택했는지 구분
+			if($('#gm').prop('checked')){
+				// 남자 -> 남자 신발 사이즈를 select box에 binding
+				$.each(mans, function(index, item){
+					strHTML += '<option value="'+ item.sid +'">'+ item.size +'</option>';
+				});
+			} else {
+				// 여자 -> 여자 신발 사이즈를 select box에 binding
+				$.each(womans, function(index, item){
+					strHTML += '<option value="'+ item.sid +'">'+ item.size +'</option>';
+				});
+			}
+		$('#shoes').html(strHTML);
+		}); // end change // end change
+		
+		$('#shoes').change( function(){
+			var selectedSize = $('#shoes option:selected').text();
+			var strMsg = '선택하신 사이즈는 ' + selectedSize + '입니다.';
+			$('#msg').html(strMsg);
+			
+			$('#msg').attr('style', 'font-size: 50px; color: blue;');
+		});
+	}); 
+</script>
+</head>
+<body>
+	<div>
+		<label><input type="radio" name="gender" value="M" class="css2" id="gm"/>남자</label>
+		<label><input type="radio" name="gender" value="F" class="css2" id="gf"/>여자</label>
+	</div>
+	<div>
+		<select id="shoes">
+			<option>사이즈 선택</option>
+		</select>
+	</div>
+	<div id="msg" class="css1">
+	
+	</div>
+</body>
+</html>

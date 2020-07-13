@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+<script src="jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+<script src="jquery-ui-1.12.1/jquery-ui.js"></script>
+<script>
+	$(document).ready(
+		function(){
+			$( "#button" ).button();
+			$( "#button-icon" ).button({
+				icon: "ui-icon-gear",
+				showLabel: false
+			});
+		}		
+	)
+</script>
+</head>
+<body>
+	<button id="button">확인</button>
+	<button id="button-icon">An icon-only button</button>
+</body>
+</html>

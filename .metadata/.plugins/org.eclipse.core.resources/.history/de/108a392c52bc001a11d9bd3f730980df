@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String str = request.getParameter("params");
+	String[] strComIDs = str.split("-");
+	//out.println(strComIDs.length);
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="../js/students.js"></script>
+<script>
+	$( function(){
+		getAddr('', 1, 'sido');
+		
+		$('#addr1').val(<%=strComIDs[0] %>);
+		
+		$('#sido').change( function(){
+			$('#gugun').html('');
+			$('#dong').html('');
+			$('#dong2').html('');
+			getAddr($('#addr1').val(), 2, 'gugun');
+		});
+		
+		$('#gugun').change( function(){
+			$('#dong').html('');
+			$('#dong2').html('');
+			getAddr($('#addr2').val(), 3, 'dong');
+		});
+		
+		$('#dong').change( function(){
+			$('#dong2').html('');
+			getAddr($('#addr3').val(), 4, 'dong2');
+		});
+	});
+</script>
+</head>
+<body>
+	<span id="sido"></span>
+	<span id="gugun"></span>
+	<span id="dong"></span>
+	<span id="dong2"></span>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#show{
+		font-size : 20px;
+		font-weight: bold;
+		color: #222222; 
+	}
+</style>
+<script>
+function test(){
+	/* 자바스크립트 객체 타입: 1.배열 */
+	var arr = [];
+	arr[0] = '홍길동';
+	arr[1] = '전우치';
+	arr[2] = '백설공주';
+	
+	var obj = null;
+	for(var i=0; i<arr.length; i++){
+		obj = document.getElementById('show');
+		obj.innerHTML += "<div>" + arr[i] + "</div>";
+	}
+}
+</script>
+</head>
+<body>
+    <!-- 
+	<input type="text" size="8" name="num1" id="num1" />
+	<input type="text" size="8" name="num2" id="num2" />
+	 -->
+	<div id="show">
+	</div>
+	<input type="button" value="계산" onclick="test();"/>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/* #email { background-color: yellow; } */
+	input[type=text] { color: red; }
+	input[value='취미 추가'] { color: blue; }
+</style>
+<script>
+	/*
+	document.getElementById('uid');							id=""			1개
+	document.getElementsByTagName('input');					태그명			1개
+	var ex3 = document.getElementsByName('userid');			name=""			명시한 개수만큼
+		-> 찾는 name이 하나라도 배열표기법으로 접근해야함 -> ex[n],, n은 정수값
+	document.getElementsByClassName('');					class=""		명시한 개수만큼
+	document.querySelector();								css 문법으로 작성해야함 tag #id .class
+	document.querySelectorAll();							사용시 ex[n]	명시한 개수만큼
+	*/
+	function inputInfo(e){
+		console.log(e); // 눌러진 버튼의 정보는 Target 객체를 통해 확인할 수 있음
+		var btn = e.target;
+		
+		
+		// getElementsByName
+		var userid   = document.getElementsByName('userid'); // Name은 배열로 저장됨.
+		var userid_v = userid[0].value;
+		var msg = '아이디: ' + userid_v + '\n';
+		
+		var gender   = document.getElementsByName('gender');
+		if(gender[0].checked) msg += '성별: 남성\n';
+		if(gender[1].checked) msg += '성별: 여성\n';
+		//
+		
+		// getElementsByTagName
+		var input    = document.getElementsByTagName('input'); // 이름탭을 조작하고 싶다.
+		var username = input[2].value;
+		msg         += '이름: ' + username + '\n';
+		
+		var passwd = input[1].value; // 암호
+		msg       += '암호: ' + passwd + '\n';
+		//
+		
+		// getElementsByClassName
+		var tel   = document.getElementsByClassName('tel')
+		var tel_v = tel[0].value +'-'+ tel[1].value +'-'+ tel[2].value;
+		msg      += '전화: ' + tel_v + '\n';
+		//
+		
+		// querySelector
+		var email = document.querySelector('#email');
+		msg      += '이메일: ' + email.value + '\n';
+		//
+		
+		alert(msg);
+	}
+	
+	var hobbies = [
+		  { id: 'cbBasketBall', value : '농구'	},
+		  { id: 'cbFootBall'  , value : '축구'	},
+		  { id: 'cbGolf'      , value : '골프'	},
+		  { id: 'cbSwim'      , value : '수영'	},
+		  { id: 'cbMma'       , value : 'MMA'	}
+	  ];
+	
+	
+	window.onload = () => {
+		var btnInfo = document.getElementById('btnInfo');
+		btnInfo.onclick = inputInfo;
+		
+		// querySelectorAll은 복수개로 저장하기때문에 배열로 다룬다.
+		var btnHobbyAdd = document.querySelectorAll('input[value=\'취미 추가\']'); // \' \' 또는 ""로 value값 감싸기
+		btnHobbyAdd[0].onclick = function(){ //
+			alert('btnHobbyAdd Clicked.');
+		
+		/*
+			var divHobby = document.querySelector('.hobby'); // 선택자중에서 맨 첫번째만 해당됨.
+			divHobby.innerHTML = '농구, 축구, 배구, 야구, 탁구, 족구, 당구, 수영, MMA';
+		*/
+			var divHobby = document.querySelectorAll('.hobby'); // 선택자중에서 맨 첫번째만 해당됨.
+			console.log(divHobby);
+			/* 배열을 사용안했을 때 콘솔로그결과:
+	(노드 리스트) NodeList(2) [div.hobby, div.hobby]
+					0: div.hobby
+					1: div.hobby
+   (그냥 배열일 뿐) innerHTML: "농구, 축구, 배구, 야구, 탁구, 족구, 당구, 수영, MMA"
+					length: 2
+					__proto__: NodeList
+			*/
+			divHobby[0].innerHTML = '농구, 축구, 골프, 풋살, 수영';
+   			
+   			var hobbyList = '';
+   			hobbies.forEach( function(object, index, array){
+	   			hobbyList += '<input type="checkbox" name="hobby" value="'+ object.value +'" id="'+ object.id +'">'
+				hobbyList += '<label for="'+ object.id +'">'+ object.value +'</label>';
+   			});
+			divHobby[1].innerHTML = hobbyList;
+			/*
+			NodeList(2) [div.hobby, div.hobby]
+				0: div.hobby  --> innerHTML: "농구, 축구, 배구, 야구, 탁구, 족구, 당구, 수영, MMA"
+								  innerText: "농구, 축구, 배구, 야구, 탁구, 족구, 당구, 수영, MMA"
+				1: div.hobby  --> innerHTML: "농구, 축구, 배구, 야구, 탁구, 족구, 당구, 수영, MMA"
+								  innerText: "농구, 축구, 배구, 야구, 탁구, 족구, 당구, 수영, MMA"
+				length: 2
+				__proto__: NodeList
+			*/
+		}
+	}
+	
+</script>
+</head>
+<body>
+	<form action="test01_proc.jsp" method="GET">
+		*아이디  <input type="text"     name="userid"   value="sky"><br>
+		*비밀번호<input type="password" name="passwd"   value="1234"><br>
+		*이름    <input type="text"     name="username" value="하늘"><br>
+		 이메일  <input type="text"     name="email"    value="sky@naver.com" id="email"><br>
+		 
+		 전화    <input type="text"     name="tel1"     value="010"  size="4" maxlength="3" class="tel"> -
+		         <input type="text"     name="tel2"     value="1020" size="4" maxlength="4" class="tel"> -
+		         <input type="text"     name="tel3"     value="0909" size="4" maxlength="4" class="tel"><br>
+		 
+		 성별    <input type="radio"    name="gender"   id="male"    checked="checked">남성        
+		 	     <input type="radio"    name="gender"   id="female">여성        
+		
+		<div class="hobby"></div>        
+		
+		<div class="hobby"></div>        
+		
+		<input type="submit" value="회원가입">
+		<input type="image"  src  ="">
+		<button>가입</button>
+		<input type="button" value="취미 추가">
+		<input type="button" value="입력정보확인" id="btnInfo">
+	</form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page language="java" import="PKG_DB.DBCon" %>
+<%@ page language="java" import="java.sql.*" %>
+
+<%	
+	request.setCharacterEncoding("UTF-8");
+
+	String strStu_ids = request.getParameter("stu_ids");
+	
+	DBCon db = new DBCon("jdbc:oracle:thin:@localhost:1521:xe", "testdb2", "oracle");
+	
+	String strProcName = " CALL PKG_STUDENTS.PROC_DEL_STUDENTS(?) ";
+	
+	CallableStatement cstmt = db.getCallableStatement(strProcName);
+	cstmt.setString(1, strStu_ids);
+	cstmt.executeUpdate();
+	
+	//response.sendRedirect("./studentList.jsp");
+%>

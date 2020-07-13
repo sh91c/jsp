@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="./jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+<script src="./jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+<script src="./jquery-ui-1.12.1/jquery-ui.js"></script>
+<style>
+	.style1 {
+		font-size: 30px;
+		border: 1px solid #444444;
+		float: left;
+		width: 150px;
+	}
+	
+</style>
+<script>
+	var departs = [
+		{ did: 'd001', dname: '철학과', dqty: 30 },
+		{ did: 'd002', dname: '수학과', dqty: 20 },
+		{ did: 'd003', dname: '물리학과', dqty: 20 },
+		{ did: 'd004', dname: '경영학과', dqty: 40 },
+		{ did: 'd005', dname: '경제학과', dqty: 25 }
+	];
+	
+	var strHTML = '';
+	$( function(){
+		$.each( departs, function( index, item ){
+			strHTML += '<option value="'+ item.did +'">'+ item.dname +'('+ item.dqty +')' +'</option>';
+		});
+		
+	$('#departs').html(strHTML);
+	$('#departs').selectmenu();
+	
+	});
+</script>
+</head>
+<body>
+	<div>
+		<div class="style1">학과</div>
+		<div class="style1">
+			<select id="departs">
+			<!-- <option value="d001">철학과(30)</option> -->
+			</select>
+		</div>
+	</div>
+</body>
+</html>

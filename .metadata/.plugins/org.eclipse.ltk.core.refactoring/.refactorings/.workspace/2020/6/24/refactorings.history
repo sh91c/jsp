@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;Webprj06&apos;" deleteContents="true" description="Delete resource &apos;Webprj06&apos;" element1="/Webprj06" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1591580494840"/>&#x0A;<refactoring comment="Rename resource &apos;Webrpj10&apos; to &apos;Webprj10&apos;" description="Rename resource &apos;Webrpj10&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Webrpj10" name="Webprj10" stamp="1591940908211" updateReferences="true"/>
+</session>

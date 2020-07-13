@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function () {
+		var id01 = document.getElementById('id01'); // h1
+		var id02 = document.getElementById('id02'); // p
+		var div1 = document.getElementById('div1'); // div
+		
+		//div1.innerHTML = id01.innerHTML;
+		//div1.innerHTML = id01.firstChild.nodeValue; // fisrtChild는 Text가 되는 것이고 그 Text의 값(nodeValue)은 id01의 값이된다.
+		div1.innerHTML = id01.childNodes[0].nodeValue;
+		
+		div1.onclick = function () {
+			alert(this.innerHTML);
+		}
+	}
+</script>
+</head>
+<body>
+	<h1 id="id01">My First Page</h1>
+	<p  id="id02">Hello!</p>
+	<div id="div1"></div>
+</body>
+</html>

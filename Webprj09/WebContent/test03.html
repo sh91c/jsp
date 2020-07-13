@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	window.onload = function () {
+		var btn1 = document.getElementById('btn1');
+		var div1 = document.getElementById('div1');
+		
+		btn1.addEventListener('click', function(event) {
+		// function(event) : btn1의 클릭 이벤트 내용이 매개변수로 들어감
+			var btn = event.srcElement || event.target;
+		    // 익스플로러는 scrElement로, 그 외 브라우저는 target 으로 실행
+		    
+		    // Element(tag) 생성
+		    var h1 = document.createElement('h1'); // 메모리상에 생성
+		    //var txt = document.createTextNode('THIS IS NEW...');
+		    //h1.appendChild(txt);
+		    
+		    h1.innerHTML = 'This is New..';
+		    
+		    div1.appendChild(h1);
+		    
+		    
+			});
+		
+		btn2.addEventListener('click', function(event) {
+			var ul = document.createElement('ul');
+			var li1 = document.createElement('li');
+			var txt1 = document.createTextNode('사과');
+			li1.appendChild(txt1);
+			ul.appendChild(li1);
+			div2.appendChild(ul);
+			
+			var il2 = document.createElement('li'); // 이하 동일
+			var il3 = document.createElement('li');
+		});
+		
+		btn3.addEventListener('click', function(event) {
+			var fruits = ['apple', 'banana', 'kiwi', 'mango'];
+				var ul = document.createElement('ul');
+			for (var i = 0; i < fruits.length; i++) {
+				var li = document.createElement('li');
+				var txt = document.createTextNode(fruits[i]);
+				li.appendChild(txt);
+				ul.appendChild(li);
+				div3.appendChild(ul);
+			}
+		});
+		
+		btn4.addEventListener('click', function(event) {
+			var fruits = ['apple', 'banana', 'kiwi', 'mango'];
+			var sel = document.createElement('select');
+			for (var i = 0; i < fruits.length; i++) {
+				var opt = document.createElement('option');
+				var txt = document.createTextNode(fruits[i]);
+				opt.appendChild(txt);
+				sel.appendChild(opt);
+				div4.appendChild(sel);
+			}
+		});
+		
+		btn5.addEventListener('click', function(event) {
+			var fruits = ['apple', 'banana', 'kiwi', 'mango'];
+		   	for (var i = 0; i < fruits.length; i++) {
+		    	var label = document.createElement('label');
+		    	var forLabel = document.createAttribute('for');
+		   		var txt = document.createTextNode(fruits[i]);
+			   	var input = document.createElement('input');
+			   	var type  = document.createAttribute('type');
+			   	var value  = document.createAttribute('value');
+			   	var id  = document.createAttribute('id');
+			   	type.value = 'radio';
+			   	value.value = fruits[i];
+			   	id.value = fruits[i];
+			   	forLabel.value = fruits[i];
+			   	input.setAttributeNode(type);
+			   	input.setAttributeNode(value);
+			   	input.setAttributeNode(id);
+			   	label.setAttributeNode(forLabel);
+			   	label.appendChild(txt);
+			   	div5.appendChild(input);			
+			   	div5.appendChild(label);
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<button id="btn1">만들기</button>
+	<button id="btn2">과일</button>
+	<button id="btn3">과일[배열사용]</button>
+	<button id="btn4">과일[셀렉트 태그]</button>
+	<button id="btn5">과일[인풋 타입 라디오 태그]</button>
+	<div id="div1"></div>
+	<div id="div2"></div>
+	<div id="div3"></div>
+	<div id="div4"></div>
+	<div id="div5"></div>
+	<input type="radio" value="테스트">
+</body>
+</html>

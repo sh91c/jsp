@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	a { color: black; text-decoration: none; border: 1px dashed blue;}
+	a:hover { background-color: teal; }
+</style>
+<script>
+	// a 태그를 버튼처럼 사용하기
+	// 바로 이동하지 않고 작업을 처리 후 이동
+	var locs = [
+		{title: '네이버', href:'http://www.naver.com'},
+		{title: '네이트', href:'http://www.nate.com'},
+		{title: '다음', href:'http://www.daum.net'},
+		{title: '구글', href:'http://www.google.com'}
+	];
+	
+	function selectInit(){
+		var select = document.querySelector('select[name=loc]');
+		locs.forEach(function(val, idx){
+			var loc    = val;
+			var option = document.createElement('option');  // <option></option>
+			var txt    = document.createTextNode(loc.title); // 네이버
+			option.appendChild(txt); // <option>네이버</option>
+			var attr = document.createAttribute('value');
+			attr.value = loc.href;
+			option.setAttributeNode(attr);
+			//option.value = loc.href;			
+			select.appendChild(option);
+		});
+	}
+	
+	window.onload = function(){
+		var a = document.getElementById('a1');
+		selectInit();
+		a1.onclick = function(e){
+			e.preventDefault();
+			e.stopPropagation();
+			
+			var select  = document.getElementById('loc');
+			console.dir(select);
+			var idx     = select.selectedIndex;
+			var selText = select[idx].value;
+			alert(selText);
+			location.href = selText;
+		}
+	}
+</script>
+</head>
+<body>
+	<select id="loc" name="loc"></select>
+	<a id="a1" href="http://www.naver.com">이동</a>
+</body>
+</html>

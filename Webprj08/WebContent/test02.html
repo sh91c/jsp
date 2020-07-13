@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var hello = () => {
+		var p = document.createElement('p');
+		document.body.appendChild(p).innerHTML += 'Hello world!!';	
+	}
+	
+	//window.onload = hello;
+	
+	//window.addEventListener('load', hello);
+	
+	/*
+	window.onload = () => {
+		var btns = document.getElementsByTagName('button');
+		btns[0].addEventListener('click', hello);
+	}
+	*/
+	
+	//window.onload = () => document.getElementsByTagName('button')[0].addEventListener('click', hello);
+	
+	window.onload = () => document.querySelector('button').addEventListener('click', hello);
+</script>
+</head>
+<body>
+	<button>Click</button>
+</body>
+</html>

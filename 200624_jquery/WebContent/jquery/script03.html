@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script>
+
+	var func = function(){
+		
+	};
+
+	$( function(){
+		$('#tID')
+	});
+	
+	var a = 7;
+	
+	function (a);
+	
+	function test1(name, age, gender){
+		alert('이름은' + name + '이고 '+ age +'살 입니다.');
+	}
+	// 위와 아래는 같음
+	function test2(obj){
+		alert('이름은' + obj.name + '이고 '+ obj.age +'살 입니다.');
+	}
+	
+	function test(){
+	test1('홍길동','23','M');
+	test2({name : '홍길동', age : 32, gender: 'M'};
+	}
+</script>
+</head>
+<body>
+	<div id="msg">
+	</div>
+	<input type="button" value="확인" onclick='test()'/>
+</body>
+</html>

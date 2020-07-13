@@ -1,0 +1,94 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Insert title here</title>
+    <link rel="stylesheet" type="text/css" href="../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../css/demo.css">
+    <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../js/students.js?v<%=System.currentTimeMillis() %>"></script>
+    <script>
+    	$( function(){
+    		$('#btnSearch').click( function(){
+    			$('#dg').datagrid({
+    				url : './Datas/getStudents.jsp?txtSearch=' + $('#txtSearch').val(),
+    				singleSelect : true,
+                    rowStyler : function(index, row){
+                    	if(row.stu_name.indexOf('홍') == -1){
+                    		return 'background-color : pink;'
+                    	}
+                    },
+                    checkOnSelect : false,
+                    selectOnCheck : false
+    			});
+    		});
+    		
+    		var dg = $('#dg');
+    		dg.datagrid('enableFilter', [{
+                field:'stu_name',
+                type:'text'
+            }]);
+    	});
+		var toolbar = [{
+            text:'추가',
+            iconCls:'icon-add',
+            handler:function(){alert('add')}
+        	},'-',{
+            text:'자르기',
+            iconCls:'icon-cut',
+            handler:function(){alert('cut')}
+        	},'-',{
+            text:'저장',
+            iconCls:'icon-save',
+            handler:function(){alert('save')}
+        }];
+    </script>
+</head>
+<body>
+ <h2>Basic DataGrid</h2>
+    <p>DB의 프로시져가 존나 중요하다.</p>
+    <div style="margin:20px 0;"></div>
+    <div>
+    	<input class="easyui-textbox" name="txtSearch" id="txtSearch" />
+    	<input type="button" value="검색" id="btnSearch"/>
+    </div>
+    <table id="dg" class="easyui-datagrid" title="학생 정보" style="width:800px;height:500px"
+            data-options="singleSelect:false,
+                          url:'./Datas/getStudents.jsp',
+                          collapsible:true,
+                          method:'get',
+                          rownumbers : true,
+                          sortName : 'stu_addr',
+                          rowStyler : function(index, row){
+                          	if(row.stu_name.indexOf('홍') == -1){
+                          		return 'background-color : cyan;'
+                          	}
+                          },
+                          checkOnSelect : true,
+                          selectOnCheck : true,
+                          toolbar:toolbar
+                          ">
+        <thead>
+            <tr>
+            	<th data-options="field:'ck',checkbox:true"></th>
+                <th data-options="field:'stu_id',width:80,align:'center'">ID</th>
+                <th data-options="field:'stu_name',width:80,align:'center'">이름</th>
+                <th data-options="field:'stu_tel',width:120,align:'center'">연락처</th>
+                <th data-options="field:'stu_addr',width:250,align:'center'">주소</th>
+                <th data-options="field:'stu_dept',width:250,align:'center'">단과대학 / 학과</th>
+            </tr>
+        </thead>
+    </table>
+    <div style="margin:10px 0;">
+    <span>Selection Mode: </span>
+    <select onchange="$('#dg').datagrid({singleSelect:(this.value==0)})">
+        <option value="0">Single Row</option>
+        <option value="1">Multiple Rows</option>
+    </select>
+	</div>
+</body>
+</html>
