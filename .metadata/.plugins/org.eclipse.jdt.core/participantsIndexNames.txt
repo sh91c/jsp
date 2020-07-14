@@ -15,6 +15,8 @@ INDEX VERSION 1.131
 /200630_MVC/src
 /Users/choi/Documents/PKNU/jsp/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2442414610.index
 /200630_MVC/src
+/Users/choi/Documents/PKNU/jsp/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/840959753.index
+/Servlet01_200713/src
 /Users/choi/Documents/PKNU/jsp/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/640236979.index
 /Webprj02/src
 /Users/choi/Documents/PKNU/jsp/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/271240186.index

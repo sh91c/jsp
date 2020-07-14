@@ -13,7 +13,7 @@
 <script>
 	var editIndex = undefined;
     function endEditing(){
-        if (editIndex == undefined){return true}
+        if (editIndex == undefined){return true}   
         if ($('#dg').datagrid('validateRow', editIndex)){
             $('#dg').datagrid('endEdit', editIndex);
             editIndex = undefined;
@@ -120,11 +120,12 @@
 </script>
 </head>
 <body>
+<!-- url: '../01_Students/Datas/getTimeList.jsp', -->
 	<table id="dg" class="easyui-datagrid" title="학생별 시간표 리스트" style="width:100%;height:300px;"
             data-options="
                 iconCls: 'icon-edit',
                 singleSelect: true,
-                url: '../01_Students/Datas/getTimeList.jsp',
+                url: '../Students',
                 method: 'get',
              	onClickCell: onClickCell,
              	onEndEdit : onEndEdit,

@@ -1,6 +1,6 @@
 package PKG_DB;
 import java.sql.*;
-
+// DAO
 public class DBCon {
 	// field
 	private String url;
@@ -144,4 +144,6 @@ public class DBCon {
 		}
 		return updateCnt;
 	 }
+	 
+	 
 }
